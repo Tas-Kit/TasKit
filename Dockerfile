@@ -5,5 +5,5 @@
  ADD requirements.txt /TasKit/
  RUN pip install -r requirements.txt
  RUN apt-get update
- RUN apt-get install gettext
+ RUN apt-get install -y gettext
  ADD . /TasKit/

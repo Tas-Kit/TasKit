@@ -6,7 +6,8 @@ services:
     ports:
       - "8002:5432"
     volumes:
-      - ./psqldb:/docker-entrypoint-initdb.d/
+      # - ./psqldb:/docker-entrypoint-initdb.d/
+      - ./psqldb:/var/lib/postgresql/data
   neo4jdb:
     image: neo4j
     ports:
