@@ -4,16 +4,16 @@
 # echo "Collect static files"
 # python manage.py collectstatic --noinput
 
-# Make database migrations
-echo "Make database migrations"
-python manage.py makemigrations
+# # Make database migrations
+# echo "Make database migrations"
+# python manage.py makemigrations
 
-# Apply database migrations
-echo "Apply database migrations"
-python manage.py migrate
+# # Apply database migrations
+# echo "Apply database migrations"
+# python manage.py migrate
 
-echo "Install Neo4j Labels"
-python manage.py install_labels
+# echo "Install Neo4j Labels"
+# python manage.py install_labels
 
 # Start server
 echo "Starting server"

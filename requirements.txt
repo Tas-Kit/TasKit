@@ -1,4 +1,5 @@
 Django
-psycopg2
+psycopg2-binary
 neomodel
 django_neomodel
+pillow
