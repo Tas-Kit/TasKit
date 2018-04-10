@@ -7,7 +7,7 @@ from django.db.models.signals import post_save
 
 
 class UserProfile(models.Model):
-    """Summary.
+    """User's profile object, an extension to the User model.
 
     Attributes:
         image (TYPE): url
@@ -18,7 +18,7 @@ class UserProfile(models.Model):
     image = models.ImageField(upload_to='', blank=True)
 
     def __str__(self):
-        """Summary.
+        """string description.
 
         Returns:
             TYPE: String
@@ -27,7 +27,7 @@ class UserProfile(models.Model):
 
 
 def create_profile(sender, **kwags):
-    """Summary.
+    """Create User Profile when a user register.
 
     Args:
         sender (TYPE): User

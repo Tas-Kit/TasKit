@@ -1,0 +1,1 @@
+pylint --load-plugins pylint_django basic main TasKit/urls.py TasKit/settings.py

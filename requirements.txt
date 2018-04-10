@@ -3,3 +3,4 @@ psycopg2-binary
 neomodel
 django_neomodel
 pillow
+pylint_django
