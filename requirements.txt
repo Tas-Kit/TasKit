@@ -4,3 +4,8 @@ neomodel
 django_neomodel
 pillow
 pylint_django
+django-webtest
+coverage
+django-discover-runner
+mock
+selenium

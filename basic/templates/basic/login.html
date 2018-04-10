@@ -6,13 +6,13 @@
 		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
-			<button type="submit">{% trans 'Login' %}</button>
+			<button id="login" type="submit">{% trans 'Login' %}</button>
 		</form>
 		<form action="{% url 'basic:signup' %}">
-			<button type="submit">{% trans 'Sign Up' %}</button>
+			<button id="signup" type="submit">{% trans 'Sign Up' %}</button>
 		</form>
 		<form action="{% url 'basic:reset_password' %}">
-			<button type="submit">{% trans 'Forget Password' %}</button>
+			<button id="reset_password" type="submit">{% trans 'Forget Password' %}</button>
 		</form>
 	</div>
 {% endblock %}

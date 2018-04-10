@@ -6,7 +6,6 @@ services:
     ports:
       - "8002:5432"
     volumes:
-      # - ./psqldb:/docker-entrypoint-initdb.d/
       - ./psqldb:/var/lib/postgresql/data
   neo4jdb:
     image: neo4j
@@ -20,6 +19,7 @@ services:
       - NEO4J_AUTH=neo4j/neo4jpass
   taskit:
     build: .
+    image: taskit
     command: ./docker-entrypoint.sh
     volumes:
       - .:/TasKit
@@ -28,3 +28,15 @@ services:
     depends_on:
       - psqldb
       - neo4jdb
+  chrome:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444"
+  test:
+    build: .
+    image: taskit
+    command: sh test_entry.sh
+    volumes:
+      - .:/TasKit
+    depends_on:
+      - chrome

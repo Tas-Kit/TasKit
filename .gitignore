@@ -3,3 +3,6 @@ db.sqlite3
 /psqldb
 /neo4jdb
 */migrations
+/htmlcov
+.coverage
+geckodriver.log

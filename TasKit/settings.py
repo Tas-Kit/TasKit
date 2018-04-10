@@ -27,7 +27,7 @@ SECRET_KEY = '21^zmm$&m7+jj+yn8driozsj3*(l5&w*zsm9los_v^(zgj^l$z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['chrome', 'taskit']
 
 
 # Application definition
