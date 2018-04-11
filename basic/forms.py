@@ -1,9 +1,16 @@
+"""Forms of basic app."""
 from django import forms
 from django.contrib.auth import models
 from django.contrib.auth.forms import UserCreationForm
 
 
 class SignUpForm(UserCreationForm):
+    """Used for signing up user.
+
+    Attributes:
+        email (TYPE): Email Field
+    """
+
     email = forms.EmailField(required=True)
 
     class Meta:
@@ -13,8 +20,7 @@ class SignUpForm(UserCreationForm):
                   'last_name',
                   'email',
                   'password1',
-                  'password2'
-                  )
+                  'password2')
 
     def save(self, commit=True):
         user = super(SignUpForm, self).save(commit=False)
@@ -24,3 +30,4 @@ class SignUpForm(UserCreationForm):
         if commit:
             user.save()
             return user
+        return None

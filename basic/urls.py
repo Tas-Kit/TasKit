@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from views import (
+from basic.views import (
     HomeView,
     LoginView,
     SignUpView,
@@ -24,12 +24,26 @@ from views import (
     ResetPasswordCompleteView
 )
 
+# pylint: disable=invalid-name
 urlpatterns = [
     url(r'^home/$', HomeView.as_view(), name='home'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^signup/$', SignUpView.as_view(), name='signup'),
-    url(r'^reset_password/$', ResetPasswordView.as_view(), name='reset_password'),
-    url(r'^reset_password/done/$', ResetPasswordDoneView.as_view(), {'template_name': 'basic/reset_password_done.html'}, name='reset_password_done'),
-    url(r'^reset_password/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)$', ResetPasswordConfirmView.as_view(), name='password_reset_confirm'),
-    url(r'^reset_password/complete/$', ResetPasswordCompleteView.as_view(), name='password_reset_complete'),
+
+    url(r'^reset_password/$',
+        ResetPasswordView.as_view(),
+        name='reset_password'),
+
+    url(r'^reset_password/done/$',
+        ResetPasswordDoneView.as_view(),
+        {'template_name': 'basic/reset_password_done.html'},
+        name='reset_password_done'),
+
+    url(r'^reset_password/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)$',
+        ResetPasswordConfirmView.as_view(),
+        name='password_reset_confirm'),
+
+    url(r'^reset_password/complete/$',
+        ResetPasswordCompleteView.as_view(),
+        name='password_reset_complete'),
 ]

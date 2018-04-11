@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""Admin for Basic App."""
+
 from __future__ import unicode_literals
 
 from django.contrib import admin
