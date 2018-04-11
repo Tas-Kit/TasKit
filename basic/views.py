@@ -58,7 +58,7 @@ class LoginView(TemplateView):
         return render(request, self.template_name, args)
 
 
-class SignupView(TemplateView):
+class SignUpView(TemplateView):
     template_name = 'basic/signup.html'
 
     def get(self, request):
@@ -70,7 +70,10 @@ class SignupView(TemplateView):
         form = SignUpForm(data=request.POST)
         if request.method == 'POST':
             if form.is_valid():
-                form.save()
+                new_user = form.save()
+                new_user = authenticate(username=form.cleaned_data['username'],
+                                        password=form.cleaned_data['password1'])
+                login(request, new_user)
                 return redirect('basic:home')
         args = {'form': form}
         return render(request, self.template_name, args)
