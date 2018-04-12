@@ -44,6 +44,17 @@ class TestLoginView(TestCase):
         self.assertTemplateUsed(response, 'basic/login.html')
         self.assertTemplateUsed(response, 'base.html')
 
+    def test_login_redirect(self):
+        test_url = '/admin/'
+        response = self.client.get(test_url)
+        self.assertRedirects(response, reverse('basic:login') + '?next=/admin/')
+        response = self.client.post(response.url, data={
+            'username': self.username,
+            'password': self.password
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, test_url)
+
 
 class TestSignUpView(TestCase):
 

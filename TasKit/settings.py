@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'taskit.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'taskit.urls'
@@ -89,6 +90,13 @@ DATABASES = {
         'PORT': 5432,
     }
 }
+
+LOGIN_URL = '/basic/login/'
+LOGIN_EXEMPT_URLS = (
+    r'^basic/reset_password/',
+    r'^basic/signup/$',
+)
+LOGIN_REDIRECT_URL = '/basic/home'
 
 NEOMODEL_NEO4J_BOLT_URL = 'bolt://neo4j:neo4jpass@neo4jdb:7687'
 

@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import (
     PasswordResetView,
     PasswordResetDoneView,
@@ -96,6 +96,9 @@ class LoginView(TemplateView):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
+                sub_path = request.GET.get('next')
+                if sub_path:
+                    return redirect(sub_path)
                 return redirect('basic:home')
         args = {'form': form}
         return render(request, self.template_name, args)
@@ -145,3 +148,15 @@ class HomeView(TemplateView):
     """
 
     template_name = 'basic/home.html'
+
+    def post(self, request):
+        """Logout user.
+
+        Args:
+            request (TYPE): Description
+
+        Returns:
+            TYPE: Description
+        """
+        logout(request)
+        return redirect('basic:home')
