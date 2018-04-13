@@ -1,18 +1,11 @@
-{% extends 'base.html' %}
-{% load i18n %}
-{% block body %}
-	<div class="container">
-		<h1>TasKit</h1>
-		<form method="post">
-			{% csrf_token %}
-			{{ form.as_p }}
-			<button id="login" type="submit">{% trans 'Login' %}</button>
-		</form>
-		<form action="{% url 'basic:signup' %}">
-			<button id="signup" type="submit">{% trans 'Sign Up' %}</button>
-		</form>
-		<form action="{% url 'basic:reset_password' %}">
-			<button id="reset_password" type="submit">{% trans 'Forget Password' %}</button>
-		</form>
+{% extends 'base.html' %} {% load i18n %} {% block body %}
+<div class="row">
+	<form method="post">
+		{% csrf_token %} {{ form.as_p }}
+		<button class="btn full round" id="login" type="submit">{% trans 'Login' %}</button>
+	</form>
+	<div class="float-container">
+		<a href="{% url 'basic:reset_password' %}" class="btn-flat float left" id="reset_password">{% trans 'Forget Password' %}</a>
+		<a href="{% url 'basic:signup' %}" class="btn-flat float right" id="signup">{% trans 'Sign Up' %}</a>
 	</div>
-{% endblock %}
+</div> {% endblock %}
