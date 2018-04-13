@@ -1,0 +1,12 @@
+.floating-menu {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  font-weight: 300;
+  font-family: Roboto, sans-serif;
+}
+
+.floating-menu span {
+  color: #fff;
+  font-size: 13px;
+}

@@ -1,0 +1,49 @@
+.center-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.decoration-container {
+  flex: 1;
+}
+
+.card-container {
+  background: white;
+  min-width: 720px;
+  display: flex;
+  overflow: hidden;
+}
+
+.form-container {
+  padding: 2.5em 1.5em 2em;
+  flex: 1;
+}
+
+.form-container .btn {
+  margin-top: 0.5em;
+}
+
+.form-container .float-container {
+  margin-top: 0.5em;
+}
+
+.form-container input[type='text']:focus,
+.form-container input[type='password']:focus {
+  border-bottom: 1px solid #7ec5e8 !important;
+  box-shadow: 0 1px 0 0 #7ec5e8 !important;
+}
+
+.form-container label {
+  text-transform: capitalize;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.form-container label.active {
+  color: #7ec5e8;
+}

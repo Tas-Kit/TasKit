@@ -1,0 +1,23 @@
+.btn.full {
+  width: 100%;
+}
+
+.btn.round {
+  border-radius: 50px;
+}
+
+.btn {
+  background: #7ec5e8;
+  height: 3em;
+}
+
+.btn-flat {
+  background: transparent;
+  height: 3em;
+  line-height: 3em;
+  color: #7ec5e8;
+}
+
+.btn-flat:hover {
+  text-decoration: none;
+}
