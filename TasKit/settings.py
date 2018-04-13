@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_neomodel',
+    # 'rest_framework_swagger',
     'basic',
     'main'
 ]
@@ -96,7 +97,7 @@ LOGIN_EXEMPT_URLS = (
     r'^basic/reset_password/',
     r'^basic/signup/$',
 )
-LOGIN_REDIRECT_URL = '/basic/home'
+LOGIN_REDIRECT_URL = '/basic/home/'
 
 NEOMODEL_NEO4J_BOLT_URL = 'bolt://neo4j:neo4jpass@neo4jdb:7687'
 

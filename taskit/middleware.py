@@ -44,4 +44,6 @@ class LoginRequiredMiddleware(object):
         if not hasattr(request, 'user') or not request.user.is_authenticated():
             if not url_is_exempt:
                 return redirect(settings.LOGIN_URL + '?next=' + original_path)
+        elif url_is_exempt:
+            return redirect(settings.LOGIN_REDIRECT_URL)
         return None

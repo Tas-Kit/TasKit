@@ -35,6 +35,14 @@ class TestLoginView(TestCase):
         self.assertIn('_auth_user_id', self.client.session)
         self.assertEqual(int(self.client.session['_auth_user_id']), self.user.pk)
 
+    def test_already_login(self):
+        self.client.post(self.url, data={
+            'username': self.username,
+            'password': self.password
+        })
+        response = self.client.get(self.url)
+        self.assertEqual(response.url, reverse('basic:home'))
+
     def test_login_fail(self):
         response = self.client.post(self.url, data={
             'username': 'badusername',
@@ -47,7 +55,7 @@ class TestLoginView(TestCase):
     def test_login_redirect(self):
         test_url = '/admin/'
         response = self.client.get(test_url)
-        self.assertRedirects(response, reverse('basic:login') + '?next=/admin/')
+        self.assertRedirects(response, self.url + '?next=/admin/')
         response = self.client.post(response.url, data={
             'username': self.username,
             'password': self.password
