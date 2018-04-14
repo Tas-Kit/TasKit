@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_neomodel',
-    # 'rest_framework_swagger',
     'basic',
     'main'
 ]
